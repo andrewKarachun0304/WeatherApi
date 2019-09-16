@@ -6,15 +6,11 @@ import android.util.Log;
 import com.example.weatherapi.contact.WeatherContactPresenter;
 import com.example.weatherapi.model.WeatherModel;
 import com.example.weatherapi.pojo.location.Location;
+import com.example.weatherapi.pojo.weather.Weather;
 import com.example.weatherapi.view.WeatherActivity;
 
 import io.reactivex.Single;
-import io.reactivex.SingleObserver;
-import io.reactivex.SingleSource;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
 
 public class WeatherPresenter implements WeatherContactPresenter {
 
@@ -38,10 +34,16 @@ public class WeatherPresenter implements WeatherContactPresenter {
                 } else {
                     Single<Location> locationSingle = model.getCityKey();
                     locationSingle
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
+//                            .subscribeOn(Schedulers.io())
+//                            .observeOn(AndroidSchedulers.mainThread())
                             .flatMap(location -> Single.just(location.getKey()))
-                            .subscribe(s -> view.initTextView(s));
+                            .flatMap(new Function<String, Single<Weather>>() {
+                                @Override
+                                public Single<Weather> apply(String s) throws Exception {
+                                    return model.getWeather(s);
+                                }
+                            })
+                            .subscribe(weather -> Log.d("TAG","MESSAGE: " + weather.getHeadline().getText()));
                 }
             }
         });

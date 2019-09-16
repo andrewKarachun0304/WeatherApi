@@ -1,11 +1,11 @@
 package com.example.weatherapi.model;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.weatherapi.NetworkService;
 import com.example.weatherapi.contact.WeatherContactModel;
 import com.example.weatherapi.pojo.location.Location;
+import com.example.weatherapi.pojo.weather.Weather;
 import com.google.android.gms.location.LocationRequest;
 import com.patloew.rxlocation.RxLocation;
 
@@ -44,14 +44,20 @@ public class WeatherModel implements WeatherContactModel {
     }
 
     public Single<Location> getCityKey(){
-       return NetworkService.getInstance().getJsonApi().getCityKeyWithApi(API, q, LANGUAGE);
+       return NetworkService.getInstance().getJsonApi().getCityKeyWithApi(API, q, LANGUAGE)
 //        locationSingle
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
 //                .subscribe(location -> {
 //                    cityKey = location.getKey();
 //                    Log.d("TAG", cityKey);
 //                });
+    }
+
+    public Single<Weather> getWeather(String cityKey){
+        return NetworkService.getInstance().getJsonApi().getWeatherWithApi(cityKey, API, LANGUAGE, true)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     public double getLatitude() {
