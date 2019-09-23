@@ -4,25 +4,34 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.example.weatherapi.R;
+import com.example.weatherapi.ViewAdapter;
 import com.example.weatherapi.contact.WeatherContactActivity;
+import com.example.weatherapi.pojo.weather.Weather;
 import com.example.weatherapi.presenter.WeatherPresenter;
 import com.google.android.gms.location.LocationRequest;
 import com.patloew.rxlocation.RxLocation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.ZonedDateTime;
+import java.util.Date;
+
 public class WeatherActivity extends AppCompatActivity implements WeatherContactActivity {
 
-    private TextView textView;
+    private RecyclerView recyclerView;
+    private ViewAdapter adapter;
 
     private WeatherPresenter presenter;
-    private double latitude;
-    private double longitude;
     int i = 0;
 
     public static final String PERMISSION_STRING
@@ -66,16 +75,11 @@ public class WeatherActivity extends AppCompatActivity implements WeatherContact
         }
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public void initTextView(String s){
-        textView = findViewById(R.id.textView);
-        textView.setText(s);
+    public void initRecyclerView(Weather weather){
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ViewAdapter();
+        recyclerView.setAdapter(adapter);
+        adapter.setItems(weather.getDailyForecasts());
     }
 }

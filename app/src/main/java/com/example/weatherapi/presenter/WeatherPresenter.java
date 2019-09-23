@@ -1,14 +1,15 @@
 package com.example.weatherapi.presenter;
 
-import android.os.Handler;
+import android.location.Location;
 import android.util.Log;
 
 import com.example.weatherapi.contact.WeatherContactPresenter;
 import com.example.weatherapi.model.WeatherModel;
-import com.example.weatherapi.pojo.location.Location;
+import com.example.weatherapi.pojo.location.LocationCord;
 import com.example.weatherapi.pojo.weather.Weather;
 import com.example.weatherapi.view.WeatherActivity;
 
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.functions.Function;
 
@@ -24,18 +25,15 @@ public class WeatherPresenter implements WeatherContactPresenter {
     }
 
     public void getLocation(){
-        model.location();
-        final Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                if(model.getLatitude() == 0.0 && model.getLongitude() == 0.0){
-                    handler.postDelayed(this, 1000);
-                } else {
-                    Single<Location> locationSingle = model.getCityKey();
+        Observable<Location> locationObservable = model.location();
+        locationObservable
+                .flatMap(location -> Observable.just(location.getLatitude() + ", " + location.getLongitude()))
+                .subscribe(s -> getWeather(s));
+    }
+
+    public void getWeather(String q){
+        Single<LocationCord> locationSingle = model.getCityKey(q);
                     locationSingle
-//                            .subscribeOn(Schedulers.io())
-//                            .observeOn(AndroidSchedulers.mainThread())
                             .flatMap(location -> Single.just(location.getKey()))
                             .flatMap(new Function<String, Single<Weather>>() {
                                 @Override
@@ -43,14 +41,6 @@ public class WeatherPresenter implements WeatherContactPresenter {
                                     return model.getWeather(s);
                                 }
                             })
-                            .subscribe(weather -> Log.d("TAG","MESSAGE: " + weather.getHeadline().getText()));
-                }
-            }
-        });
+                            .subscribe(weather -> view.initRecyclerView(weather));
     }
 }
-//Log.d("TAG", "Presenter");
-//        model.getCityKey();
-//        if(model.getKey().equals(null)){
-//        handler.postDelayed(this, 1000);
-//        } else view.initTextView(model.getKey());
