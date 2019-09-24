@@ -1,29 +1,32 @@
 
 package com.example.weatherapi.pojo.weather;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Moon {
+public class Moon implements Serializable
+{
 
     @SerializedName("Rise")
     @Expose
     private String rise;
     @SerializedName("EpochRise")
     @Expose
-    private int epochRise;
+    private Integer epochRise;
     @SerializedName("Set")
     @Expose
     private String set;
     @SerializedName("EpochSet")
     @Expose
-    private int epochSet;
+    private Integer epochSet;
     @SerializedName("Phase")
     @Expose
     private String phase;
     @SerializedName("Age")
     @Expose
-    private int age;
+    private Integer age;
+    private final static long serialVersionUID = 5699264268195819145L;
 
     public String getRise() {
         return rise;
@@ -33,11 +36,11 @@ public class Moon {
         this.rise = rise;
     }
 
-    public int getEpochRise() {
+    public Integer getEpochRise() {
         return epochRise;
     }
 
-    public void setEpochRise(int epochRise) {
+    public void setEpochRise(Integer epochRise) {
         this.epochRise = epochRise;
     }
 
@@ -49,11 +52,11 @@ public class Moon {
         this.set = set;
     }
 
-    public int getEpochSet() {
+    public Integer getEpochSet() {
         return epochSet;
     }
 
-    public void setEpochSet(int epochSet) {
+    public void setEpochSet(Integer epochSet) {
         this.epochSet = epochSet;
     }
 
@@ -65,11 +68,11 @@ public class Moon {
         this.phase = phase;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

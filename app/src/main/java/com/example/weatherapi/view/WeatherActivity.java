@@ -7,24 +7,15 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Log;
-import android.widget.TextView;
 
 import com.example.weatherapi.R;
 import com.example.weatherapi.ViewAdapter;
 import com.example.weatherapi.contact.WeatherContactActivity;
 import com.example.weatherapi.pojo.weather.Weather;
 import com.example.weatherapi.presenter.WeatherPresenter;
-import com.google.android.gms.location.LocationRequest;
-import com.patloew.rxlocation.RxLocation;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.ZonedDateTime;
-import java.util.Date;
 
 public class WeatherActivity extends AppCompatActivity implements WeatherContactActivity {
 
@@ -78,7 +69,15 @@ public class WeatherActivity extends AppCompatActivity implements WeatherContact
     public void initRecyclerView(Weather weather){
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ViewAdapter();
+
+        ViewAdapter.OnWeatherClickListener onWeatherClickListener =
+                daily -> {
+                    Intent intent = new Intent(WeatherActivity.this, FullWeatherActivity.class);
+                    intent.putExtra("daily", daily);
+                    startActivity(intent);
+                };
+
+        adapter = new ViewAdapter(onWeatherClickListener);
         recyclerView.setAdapter(adapter);
         adapter.setItems(weather.getDailyForecasts());
     }

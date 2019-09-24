@@ -1,26 +1,22 @@
 
 package com.example.weatherapi.pojo.weather;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Day {
+public class Day implements Serializable
+{
 
     @SerializedName("Icon")
     @Expose
-    private int icon;
+    private Integer icon;
     @SerializedName("IconPhrase")
     @Expose
     private String iconPhrase;
     @SerializedName("HasPrecipitation")
     @Expose
-    private boolean hasPrecipitation;
-    @SerializedName("PrecipitationType")
-    @Expose
-    private String precipitationType;
-    @SerializedName("PrecipitationIntensity")
-    @Expose
-    private String precipitationIntensity;
+    private Boolean hasPrecipitation;
     @SerializedName("ShortPhrase")
     @Expose
     private String shortPhrase;
@@ -29,19 +25,19 @@ public class Day {
     private String longPhrase;
     @SerializedName("PrecipitationProbability")
     @Expose
-    private int precipitationProbability;
+    private Integer precipitationProbability;
     @SerializedName("ThunderstormProbability")
     @Expose
-    private int thunderstormProbability;
+    private Integer thunderstormProbability;
     @SerializedName("RainProbability")
     @Expose
-    private int rainProbability;
+    private Integer rainProbability;
     @SerializedName("SnowProbability")
     @Expose
-    private int snowProbability;
+    private Integer snowProbability;
     @SerializedName("IceProbability")
     @Expose
-    private int iceProbability;
+    private Integer iceProbability;
     @SerializedName("Wind")
     @Expose
     private Wind wind;
@@ -62,25 +58,26 @@ public class Day {
     private Ice ice;
     @SerializedName("HoursOfPrecipitation")
     @Expose
-    private float hoursOfPrecipitation;
+    private Integer hoursOfPrecipitation;
     @SerializedName("HoursOfRain")
     @Expose
-    private float hoursOfRain;
+    private Integer hoursOfRain;
     @SerializedName("HoursOfSnow")
     @Expose
-    private float hoursOfSnow;
+    private Integer hoursOfSnow;
     @SerializedName("HoursOfIce")
     @Expose
-    private float hoursOfIce;
+    private Integer hoursOfIce;
     @SerializedName("CloudCover")
     @Expose
-    private int cloudCover;
+    private Integer cloudCover;
+    private final static long serialVersionUID = -964272359623623640L;
 
-    public int getIcon() {
+    public Integer getIcon() {
         return icon;
     }
 
-    public void setIcon(int icon) {
+    public void setIcon(Integer icon) {
         this.icon = icon;
     }
 
@@ -92,28 +89,12 @@ public class Day {
         this.iconPhrase = iconPhrase;
     }
 
-    public boolean isHasPrecipitation() {
+    public Boolean getHasPrecipitation() {
         return hasPrecipitation;
     }
 
-    public void setHasPrecipitation(boolean hasPrecipitation) {
+    public void setHasPrecipitation(Boolean hasPrecipitation) {
         this.hasPrecipitation = hasPrecipitation;
-    }
-
-    public String getPrecipitationType() {
-        return precipitationType;
-    }
-
-    public void setPrecipitationType(String precipitationType) {
-        this.precipitationType = precipitationType;
-    }
-
-    public String getPrecipitationIntensity() {
-        return precipitationIntensity;
-    }
-
-    public void setPrecipitationIntensity(String precipitationIntensity) {
-        this.precipitationIntensity = precipitationIntensity;
     }
 
     public String getShortPhrase() {
@@ -132,43 +113,43 @@ public class Day {
         this.longPhrase = longPhrase;
     }
 
-    public int getPrecipitationProbability() {
+    public Integer getPrecipitationProbability() {
         return precipitationProbability;
     }
 
-    public void setPrecipitationProbability(int precipitationProbability) {
+    public void setPrecipitationProbability(Integer precipitationProbability) {
         this.precipitationProbability = precipitationProbability;
     }
 
-    public int getThunderstormProbability() {
+    public Integer getThunderstormProbability() {
         return thunderstormProbability;
     }
 
-    public void setThunderstormProbability(int thunderstormProbability) {
+    public void setThunderstormProbability(Integer thunderstormProbability) {
         this.thunderstormProbability = thunderstormProbability;
     }
 
-    public int getRainProbability() {
+    public Integer getRainProbability() {
         return rainProbability;
     }
 
-    public void setRainProbability(int rainProbability) {
+    public void setRainProbability(Integer rainProbability) {
         this.rainProbability = rainProbability;
     }
 
-    public int getSnowProbability() {
+    public Integer getSnowProbability() {
         return snowProbability;
     }
 
-    public void setSnowProbability(int snowProbability) {
+    public void setSnowProbability(Integer snowProbability) {
         this.snowProbability = snowProbability;
     }
 
-    public int getIceProbability() {
+    public Integer getIceProbability() {
         return iceProbability;
     }
 
-    public void setIceProbability(int iceProbability) {
+    public void setIceProbability(Integer iceProbability) {
         this.iceProbability = iceProbability;
     }
 
@@ -220,43 +201,43 @@ public class Day {
         this.ice = ice;
     }
 
-    public float getHoursOfPrecipitation() {
+    public Integer getHoursOfPrecipitation() {
         return hoursOfPrecipitation;
     }
 
-    public void setHoursOfPrecipitation(float hoursOfPrecipitation) {
+    public void setHoursOfPrecipitation(Integer hoursOfPrecipitation) {
         this.hoursOfPrecipitation = hoursOfPrecipitation;
     }
 
-    public float getHoursOfRain() {
+    public Integer getHoursOfRain() {
         return hoursOfRain;
     }
 
-    public void setHoursOfRain(float hoursOfRain) {
+    public void setHoursOfRain(Integer hoursOfRain) {
         this.hoursOfRain = hoursOfRain;
     }
 
-    public float getHoursOfSnow() {
+    public Integer getHoursOfSnow() {
         return hoursOfSnow;
     }
 
-    public void setHoursOfSnow(float hoursOfSnow) {
+    public void setHoursOfSnow(Integer hoursOfSnow) {
         this.hoursOfSnow = hoursOfSnow;
     }
 
-    public float getHoursOfIce() {
+    public Integer getHoursOfIce() {
         return hoursOfIce;
     }
 
-    public void setHoursOfIce(float hoursOfIce) {
+    public void setHoursOfIce(Integer hoursOfIce) {
         this.hoursOfIce = hoursOfIce;
     }
 
-    public int getCloudCover() {
+    public Integer getCloudCover() {
         return cloudCover;
     }
 
-    public void setCloudCover(int cloudCover) {
+    public void setCloudCover(Integer cloudCover) {
         this.cloudCover = cloudCover;
     }
 

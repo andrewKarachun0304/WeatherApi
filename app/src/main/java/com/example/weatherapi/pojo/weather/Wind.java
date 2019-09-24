@@ -1,10 +1,12 @@
 
 package com.example.weatherapi.pojo.weather;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Wind {
+public class Wind implements Serializable
+{
 
     @SerializedName("Speed")
     @Expose
@@ -12,6 +14,7 @@ public class Wind {
     @SerializedName("Direction")
     @Expose
     private Direction direction;
+    private final static long serialVersionUID = -2037653833396070610L;
 
     public Speed getSpeed() {
         return speed;

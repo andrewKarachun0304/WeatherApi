@@ -1,11 +1,13 @@
 
 package com.example.weatherapi.pojo.weather;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Weather {
+public class Weather implements Serializable
+{
 
     @SerializedName("Headline")
     @Expose
@@ -13,6 +15,7 @@ public class Weather {
     @SerializedName("DailyForecasts")
     @Expose
     private List<DailyForecast> dailyForecasts = null;
+    private final static long serialVersionUID = -2908447562881286677L;
 
     public Headline getHeadline() {
         return headline;

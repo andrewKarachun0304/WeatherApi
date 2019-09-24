@@ -1,26 +1,29 @@
 
 package com.example.weatherapi.pojo.weather;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AirAndPollen {
+public class AirAndPollen implements Serializable
+{
 
     @SerializedName("Name")
     @Expose
     private String name;
     @SerializedName("Value")
     @Expose
-    private int value;
+    private Integer value;
     @SerializedName("Category")
     @Expose
     private String category;
     @SerializedName("CategoryValue")
     @Expose
-    private int categoryValue;
+    private Integer categoryValue;
     @SerializedName("Type")
     @Expose
     private String type;
+    private final static long serialVersionUID = 1763997679315361021L;
 
     public String getName() {
         return name;
@@ -30,11 +33,11 @@ public class AirAndPollen {
         this.name = name;
     }
 
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 
@@ -46,11 +49,11 @@ public class AirAndPollen {
         this.category = category;
     }
 
-    public int getCategoryValue() {
+    public Integer getCategoryValue() {
         return categoryValue;
     }
 
-    public void setCategoryValue(int categoryValue) {
+    public void setCategoryValue(Integer categoryValue) {
         this.categoryValue = categoryValue;
     }
 

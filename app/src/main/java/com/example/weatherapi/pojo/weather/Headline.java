@@ -1,20 +1,22 @@
 
 package com.example.weatherapi.pojo.weather;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Headline {
+public class Headline implements Serializable
+{
 
     @SerializedName("EffectiveDate")
     @Expose
     private String effectiveDate;
     @SerializedName("EffectiveEpochDate")
     @Expose
-    private int effectiveEpochDate;
+    private Integer effectiveEpochDate;
     @SerializedName("Severity")
     @Expose
-    private int severity;
+    private Integer severity;
     @SerializedName("Text")
     @Expose
     private String text;
@@ -23,16 +25,17 @@ public class Headline {
     private String category;
     @SerializedName("EndDate")
     @Expose
-    private String endDate;
+    private Object endDate;
     @SerializedName("EndEpochDate")
     @Expose
-    private int endEpochDate;
+    private Object endEpochDate;
     @SerializedName("MobileLink")
     @Expose
     private String mobileLink;
     @SerializedName("Link")
     @Expose
     private String link;
+    private final static long serialVersionUID = -7026652072122191537L;
 
     public String getEffectiveDate() {
         return effectiveDate;
@@ -42,19 +45,19 @@ public class Headline {
         this.effectiveDate = effectiveDate;
     }
 
-    public int getEffectiveEpochDate() {
+    public Integer getEffectiveEpochDate() {
         return effectiveEpochDate;
     }
 
-    public void setEffectiveEpochDate(int effectiveEpochDate) {
+    public void setEffectiveEpochDate(Integer effectiveEpochDate) {
         this.effectiveEpochDate = effectiveEpochDate;
     }
 
-    public int getSeverity() {
+    public Integer getSeverity() {
         return severity;
     }
 
-    public void setSeverity(int severity) {
+    public void setSeverity(Integer severity) {
         this.severity = severity;
     }
 
@@ -74,19 +77,19 @@ public class Headline {
         this.category = category;
     }
 
-    public String getEndDate() {
+    public Object getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(Object endDate) {
         this.endDate = endDate;
     }
 
-    public int getEndEpochDate() {
+    public Object getEndEpochDate() {
         return endEpochDate;
     }
 
-    public void setEndEpochDate(int endEpochDate) {
+    public void setEndEpochDate(Object endEpochDate) {
         this.endEpochDate = endEpochDate;
     }
 

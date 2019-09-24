@@ -1,18 +1,20 @@
 
 package com.example.weatherapi.pojo.weather;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DailyForecast {
+public class DailyForecast implements Serializable
+{
 
     @SerializedName("Date")
     @Expose
     private String date;
     @SerializedName("EpochDate")
     @Expose
-    private int epochDate;
+    private Integer epochDate;
     @SerializedName("Sun")
     @Expose
     private Sun sun;
@@ -30,7 +32,7 @@ public class DailyForecast {
     private RealFeelTemperatureShade realFeelTemperatureShade;
     @SerializedName("HoursOfSun")
     @Expose
-    private float hoursOfSun;
+    private Double hoursOfSun;
     @SerializedName("DegreeDaySummary")
     @Expose
     private DegreeDaySummary degreeDaySummary;
@@ -52,6 +54,7 @@ public class DailyForecast {
     @SerializedName("Link")
     @Expose
     private String link;
+    private final static long serialVersionUID = 3924645621521268076L;
 
     public String getDate() {
         return date;
@@ -61,11 +64,11 @@ public class DailyForecast {
         this.date = date;
     }
 
-    public int getEpochDate() {
+    public Integer getEpochDate() {
         return epochDate;
     }
 
-    public void setEpochDate(int epochDate) {
+    public void setEpochDate(Integer epochDate) {
         this.epochDate = epochDate;
     }
 
@@ -109,11 +112,11 @@ public class DailyForecast {
         this.realFeelTemperatureShade = realFeelTemperatureShade;
     }
 
-    public float getHoursOfSun() {
+    public Double getHoursOfSun() {
         return hoursOfSun;
     }
 
-    public void setHoursOfSun(float hoursOfSun) {
+    public void setHoursOfSun(Double hoursOfSun) {
         this.hoursOfSun = hoursOfSun;
     }
 

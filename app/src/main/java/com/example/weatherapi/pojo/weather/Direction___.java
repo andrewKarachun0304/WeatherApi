@@ -1,26 +1,29 @@
 
 package com.example.weatherapi.pojo.weather;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Direction___ {
+public class Direction___ implements Serializable
+{
 
     @SerializedName("Degrees")
     @Expose
-    private int degrees;
+    private Integer degrees;
     @SerializedName("Localized")
     @Expose
     private String localized;
     @SerializedName("English")
     @Expose
     private String english;
+    private final static long serialVersionUID = 8957172886415360971L;
 
-    public int getDegrees() {
+    public Integer getDegrees() {
         return degrees;
     }
 
-    public void setDegrees(int degrees) {
+    public void setDegrees(Integer degrees) {
         this.degrees = degrees;
     }
 

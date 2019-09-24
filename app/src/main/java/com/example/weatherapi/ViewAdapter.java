@@ -20,6 +20,11 @@ import java.util.List;
 public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.WeatherViewHolder> {
 
     private List<DailyForecast> dailyList = new ArrayList<>();
+    private OnWeatherClickListener listener;
+
+    public ViewAdapter(OnWeatherClickListener listener) {
+        this.listener = listener;
+    }
 
     public void setItems(List<DailyForecast> daily){
         if (daily.equals(null)){
@@ -53,8 +58,12 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.WeatherViewHol
         return dailyList.size();
     }
 
+    public interface OnWeatherClickListener{
+        void onWeatherClick(DailyForecast daily);
+    }
+
     public class WeatherViewHolder extends RecyclerView.ViewHolder {
-        private String dataTimeFormat = "yyy-MM-dd'T'HH:mm:ssXXX";
+        private static final String dataTimeFormat = "yyy-MM-dd'T'HH:mm:ssXXX";
 
         private TextView dataTv;
         private TextView tempDayTv;
@@ -70,13 +79,18 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.WeatherViewHol
             tempNightTv = itemView.findViewById(R.id.night_temp_weather_item_tv);
             sostDayTv = itemView.findViewById(R.id.day_sost_weather_item_tv);
             sostNightTv = itemView.findViewById(R.id.night_sost_weather_item_tv);
+
+            itemView.setOnClickListener(view -> {
+                DailyForecast dailyForecast = dailyList.get(getLayoutPosition());
+                listener.onWeatherClick(dailyForecast);
+            });
         }
 
         public void bind(DailyForecast dailyForecast){
             dataTv.setText(parseData(dailyForecast.getDate()));
-            tempDayTv.setText(dailyForecast.getTemperature().getMaximum().getValue() + " C");
+            tempDayTv.setText(dailyForecast.getTemperature().getMaximum().getValue() + " F");
             sostDayTv.setText(dailyForecast.getDay().getIconPhrase());
-            tempNightTv.setText(dailyForecast.getTemperature().getMinimum().getValue() + " C");
+            tempNightTv.setText(dailyForecast.getTemperature().getMinimum().getValue() + " F");
             sostNightTv.setText(dailyForecast.getNight().getIconPhrase());
         }
 

@@ -1,26 +1,29 @@
 
 package com.example.weatherapi.pojo.weather;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Maximum_ {
+public class Maximum_ implements Serializable
+{
 
     @SerializedName("Value")
     @Expose
-    private float value;
+    private Integer value;
     @SerializedName("Unit")
     @Expose
     private String unit;
     @SerializedName("UnitType")
     @Expose
-    private int unitType;
+    private Integer unitType;
+    private final static long serialVersionUID = 5454482624892361526L;
 
-    public float getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(float value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 
@@ -32,11 +35,11 @@ public class Maximum_ {
         this.unit = unit;
     }
 
-    public int getUnitType() {
+    public Integer getUnitType() {
         return unitType;
     }
 
-    public void setUnitType(int unitType) {
+    public void setUnitType(Integer unitType) {
         this.unitType = unitType;
     }
 

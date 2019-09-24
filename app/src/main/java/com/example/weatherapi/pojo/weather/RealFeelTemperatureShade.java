@@ -1,10 +1,12 @@
 
 package com.example.weatherapi.pojo.weather;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RealFeelTemperatureShade {
+public class RealFeelTemperatureShade implements Serializable
+{
 
     @SerializedName("Minimum")
     @Expose
@@ -12,6 +14,7 @@ public class RealFeelTemperatureShade {
     @SerializedName("Maximum")
     @Expose
     private Maximum__ maximum;
+    private final static long serialVersionUID = 1862931189686588440L;
 
     public Minimum__ getMinimum() {
         return minimum;

@@ -1,7 +1,6 @@
 package com.example.weatherapi.presenter;
 
 import android.location.Location;
-import android.util.Log;
 
 import com.example.weatherapi.contact.WeatherContactPresenter;
 import com.example.weatherapi.model.WeatherModel;
@@ -35,12 +34,7 @@ public class WeatherPresenter implements WeatherContactPresenter {
         Single<LocationCord> locationSingle = model.getCityKey(q);
                     locationSingle
                             .flatMap(location -> Single.just(location.getKey()))
-                            .flatMap(new Function<String, Single<Weather>>() {
-                                @Override
-                                public Single<Weather> apply(String s) throws Exception {
-                                    return model.getWeather(s);
-                                }
-                            })
+                            .flatMap((Function<String, Single<Weather>>) s -> model.getWeather(s))
                             .subscribe(weather -> view.initRecyclerView(weather));
     }
 }
