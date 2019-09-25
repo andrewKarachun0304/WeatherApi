@@ -10,7 +10,7 @@ public class TotalLiquid implements Serializable
 
     @SerializedName("Value")
     @Expose
-    private Integer value;
+    private String value;
     @SerializedName("Unit")
     @Expose
     private String unit;
@@ -19,11 +19,11 @@ public class TotalLiquid implements Serializable
     private Integer unitType;
     private final static long serialVersionUID = 6412108481773121621L;
 
-    public Integer getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(String value) {
         this.value = value;
     }
 

@@ -2,6 +2,7 @@ package com.example.weatherapi.model;
 
 import android.content.Context;
 import android.location.Location;
+import android.view.ViewGroup;
 
 import com.example.weatherapi.NetworkService;
 import com.example.weatherapi.contact.WeatherContactModel;
@@ -20,7 +21,7 @@ import io.reactivex.schedulers.Schedulers;
 public class WeatherModel implements WeatherContactModel {
 
     private Context weatherContext;
-    private static final String API = "wyKrkqqNe19YsqnZCZBLviT8307SYN2O";
+    private static final String API = "MLMlNg7nnJrzxuCv4fAP8e2eD98ECtCE";
     private static final String LANGUAGE = "ru-ru";
 
     public void setWeatherContext(Context weatherContext) {

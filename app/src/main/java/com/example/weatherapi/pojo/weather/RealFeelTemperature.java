@@ -10,25 +10,25 @@ public class RealFeelTemperature implements Serializable
 
     @SerializedName("Minimum")
     @Expose
-    private Minimum_ minimum;
+    private Minimum minimum;
     @SerializedName("Maximum")
     @Expose
-    private Maximum_ maximum;
+    private Maximum maximum;
     private final static long serialVersionUID = -5324778194365778131L;
 
-    public Minimum_ getMinimum() {
+    public Minimum getMinimum() {
         return minimum;
     }
 
-    public void setMinimum(Minimum_ minimum) {
+    public void setMinimum(Minimum minimum) {
         this.minimum = minimum;
     }
 
-    public Maximum_ getMaximum() {
+    public Maximum getMaximum() {
         return maximum;
     }
 
-    public void setMaximum(Maximum_ maximum) {
+    public void setMaximum(Maximum maximum) {
         this.maximum = maximum;
     }
 

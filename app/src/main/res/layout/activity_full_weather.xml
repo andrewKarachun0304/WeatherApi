@@ -8,20 +8,21 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="2dp">
+            android:layout_marginBottom="2dp"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
                 android:background="@android:color/white"
                 android:orientation="vertical"
                 android:padding="10dp">
@@ -29,7 +30,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="День"
+                    android:text="@string/day_str"
                     android:textSize="14sp"
                     android:textColor="@android:color/black"/>
 
@@ -37,15 +38,20 @@
                     android:id="@+id/day_data_full_weather_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="День"
+                    android:text="@string/data_value_str"
                     android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/wsymbol_0024_thunderstorms"/>
 
                 <TextView
                     android:id="@+id/day_temp_full_weather_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="80dp"
-                    android:text="12"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/temp_value_str"
                     android:textSize="50sp"
                     android:textColor="@android:color/black"/>
 
@@ -54,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="Облачно"
+                    android:text="@string/overcast_str"
                     android:layout_marginTop="20dp"/>
 
             </LinearLayout>
@@ -63,7 +69,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:background="@android:color/white"
                 android:orientation="vertical"
                 android:padding="10dp">
@@ -71,7 +77,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ночь"
+                    android:text="@string/night_str"
                     android:textSize="14sp"
                     android:textColor="@android:color/black"/>
 
@@ -79,15 +85,19 @@
                     android:id="@+id/night_data_full_weather_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="День"
+                    android:text="@string/data_value_str"
                     android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/wsymbol_0021_cloudy_with_sleet"/>
 
                 <TextView
                     android:id="@+id/night_temp_full_weather_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="80dp"
-                    android:text="12"
+                    android:text="@string/temp_value_str"
                     android:textSize="50sp"
                     android:textColor="@android:color/black"/>
 
@@ -96,7 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="Облачно"
+                    android:text="@string/overcast_str"
                     android:layout_marginTop="20dp"/>
 
             </LinearLayout>
@@ -105,27 +115,151 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="2dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
                 android:background="@android:color/white"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/day_precipitation_percent_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/precipitation_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/day_uf_index_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/uf_index_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/day_thunderstorm_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thunderstorms_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/day_precipitation_value_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/precipitation_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/day_rain_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rain_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/day_snow_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/snow_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/day_hoarfrost_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hoarfrost_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/day_wind_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wind_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/day_gusts_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gusts_str"
+                    android:layout_marginBottom="3dp"/>
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:background="@android:color/white"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/night_precipitation_percent_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/precipitation_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/night_thunderstorm_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thunderstorms_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/night_precipitation_value_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/precipitation_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/night_rain_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rain_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/night_snow_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/snow_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/night_hoarfrost_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hoarfrost_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/night_wind_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wind_str"
+                    android:layout_marginBottom="3dp"/>
+
+                <TextView
+                    android:id="@+id/night_gusts_full_weather_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gusts_str"
+                    android:layout_marginBottom="3dp"/>
+
             </LinearLayout>
         </LinearLayout>
 
@@ -133,7 +267,74 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginTop="5dp"
-            android:background="@android:color/white">
+            android:background="@android:color/white"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="РАССВЕТ/ЗАКАТ"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Рассвет:"
+                    android:layout_marginTop="3dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="07:00"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Закат:"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="19:02"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/wsymbol_0001_sunny" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Длительность:"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12:02 hr"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"/>
+
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>

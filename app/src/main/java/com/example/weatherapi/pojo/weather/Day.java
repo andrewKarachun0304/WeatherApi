@@ -58,19 +58,19 @@ public class Day implements Serializable
     private Ice ice;
     @SerializedName("HoursOfPrecipitation")
     @Expose
-    private Integer hoursOfPrecipitation;
+    private String hoursOfPrecipitation;
     @SerializedName("HoursOfRain")
     @Expose
-    private Integer hoursOfRain;
+    private String hoursOfRain;
     @SerializedName("HoursOfSnow")
     @Expose
-    private Integer hoursOfSnow;
+    private String hoursOfSnow;
     @SerializedName("HoursOfIce")
     @Expose
-    private Integer hoursOfIce;
+    private String hoursOfIce;
     @SerializedName("CloudCover")
     @Expose
-    private Integer cloudCover;
+    private String cloudCover;
     private final static long serialVersionUID = -964272359623623640L;
 
     public Integer getIcon() {
@@ -201,43 +201,43 @@ public class Day implements Serializable
         this.ice = ice;
     }
 
-    public Integer getHoursOfPrecipitation() {
+    public String getHoursOfPrecipitation() {
         return hoursOfPrecipitation;
     }
 
-    public void setHoursOfPrecipitation(Integer hoursOfPrecipitation) {
+    public void setHoursOfPrecipitation(String hoursOfPrecipitation) {
         this.hoursOfPrecipitation = hoursOfPrecipitation;
     }
 
-    public Integer getHoursOfRain() {
+    public String getHoursOfRain() {
         return hoursOfRain;
     }
 
-    public void setHoursOfRain(Integer hoursOfRain) {
+    public void setHoursOfRain(String hoursOfRain) {
         this.hoursOfRain = hoursOfRain;
     }
 
-    public Integer getHoursOfSnow() {
+    public String getHoursOfSnow() {
         return hoursOfSnow;
     }
 
-    public void setHoursOfSnow(Integer hoursOfSnow) {
+    public void setHoursOfSnow(String hoursOfSnow) {
         this.hoursOfSnow = hoursOfSnow;
     }
 
-    public Integer getHoursOfIce() {
+    public String getHoursOfIce() {
         return hoursOfIce;
     }
 
-    public void setHoursOfIce(Integer hoursOfIce) {
+    public void setHoursOfIce(String hoursOfIce) {
         this.hoursOfIce = hoursOfIce;
     }
 
-    public Integer getCloudCover() {
+    public String getCloudCover() {
         return cloudCover;
     }
 
-    public void setCloudCover(Integer cloudCover) {
+    public void setCloudCover(String cloudCover) {
         this.cloudCover = cloudCover;
     }
 

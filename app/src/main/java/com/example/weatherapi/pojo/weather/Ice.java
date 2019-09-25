@@ -10,7 +10,7 @@ public class Ice implements Serializable
 
     @SerializedName("Value")
     @Expose
-    private Integer value;
+    private String value;
     @SerializedName("Unit")
     @Expose
     private String unit;
@@ -19,11 +19,11 @@ public class Ice implements Serializable
     private Integer unitType;
     private final static long serialVersionUID = 8679100909436130434L;
 
-    public Integer getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(String value) {
         this.value = value;
     }
 

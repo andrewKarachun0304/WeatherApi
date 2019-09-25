@@ -10,7 +10,7 @@ public class Heating implements Serializable
 
     @SerializedName("Value")
     @Expose
-    private Integer value;
+    private String value;
     @SerializedName("Unit")
     @Expose
     private String unit;
@@ -19,11 +19,11 @@ public class Heating implements Serializable
     private Integer unitType;
     private final static long serialVersionUID = -8366264652681263325L;
 
-    public Integer getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(String value) {
         this.value = value;
     }
 

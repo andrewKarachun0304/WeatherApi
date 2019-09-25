@@ -10,25 +10,25 @@ public class WindGust implements Serializable
 
     @SerializedName("Speed")
     @Expose
-    private Speed_ speed;
+    private Speed speed;
     @SerializedName("Direction")
     @Expose
-    private Direction_ direction;
+    private Direction direction;
     private final static long serialVersionUID = 316930525555125806L;
 
-    public Speed_ getSpeed() {
+    public Speed getSpeed() {
         return speed;
     }
 
-    public void setSpeed(Speed_ speed) {
+    public void setSpeed(Speed speed) {
         this.speed = speed;
     }
 
-    public Direction_ getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
-    public void setDirection(Direction_ direction) {
+    public void setDirection(Direction direction) {
         this.direction = direction;
     }
 

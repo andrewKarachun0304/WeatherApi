@@ -10,25 +10,25 @@ public class RealFeelTemperatureShade implements Serializable
 
     @SerializedName("Minimum")
     @Expose
-    private Minimum__ minimum;
+    private Minimum minimum;
     @SerializedName("Maximum")
     @Expose
-    private Maximum__ maximum;
+    private Maximum maximum;
     private final static long serialVersionUID = 1862931189686588440L;
 
-    public Minimum__ getMinimum() {
+    public Minimum getMinimum() {
         return minimum;
     }
 
-    public void setMinimum(Minimum__ minimum) {
+    public void setMinimum(Minimum minimum) {
         this.minimum = minimum;
     }
 
-    public Maximum__ getMaximum() {
+    public Maximum getMaximum() {
         return maximum;
     }
 
-    public void setMaximum(Maximum__ maximum) {
+    public void setMaximum(Maximum maximum) {
         this.maximum = maximum;
     }
 

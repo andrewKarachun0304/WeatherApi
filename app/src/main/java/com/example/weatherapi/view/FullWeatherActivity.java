@@ -3,6 +3,8 @@ package com.example.weatherapi.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.weatherapi.R;
@@ -32,7 +34,8 @@ public class FullWeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_full_weather);
 
         intent = getIntent().getExtras();
-        daily = (DailyForecast) intent.getSerializable("daily");
+        if (intent != null)
+            daily = (DailyForecast) intent.getSerializable("daily");
 
         initActivity();
     }
@@ -47,8 +50,8 @@ public class FullWeatherActivity extends AppCompatActivity {
 
         dayDataTv.setText(parseData(daily.getDate()));
         nightDataTv.setText(parseData(daily.getDate()));
-        dayTempTv.setText(daily.getTemperature().getMaximum().getValue() + " F");
-        nightTempTv.setText(daily.getTemperature().getMinimum().getValue() + " F");
+        dayTempTv.setText(convertTemperature(daily.getTemperature().getMaximum().getValue()) + " C");
+        nightTempTv.setText(convertTemperature(daily.getTemperature().getMinimum().getValue()) + " C");
         daySostTv.setText(daily.getDay().getIconPhrase());
         nightSostTv.setText(daily.getNight().getIconPhrase());
     }
@@ -62,5 +65,10 @@ public class FullWeatherActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return newData;
+    }
+
+    private int convertTemperature(String tempStr){
+        double temp = Double.parseDouble(tempStr);
+        return (int) ((temp - 32) / 1.8);
     }
 }

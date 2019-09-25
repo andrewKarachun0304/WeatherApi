@@ -1,5 +1,6 @@
 package com.example.weatherapi;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,19 +67,15 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.WeatherViewHol
         private static final String dataTimeFormat = "yyy-MM-dd'T'HH:mm:ssXXX";
 
         private TextView dataTv;
-        private TextView tempDayTv;
-        private TextView tempNightTv;
-        private TextView sostDayTv;
-        private TextView sostNightTv;
+        private TextView tempTv;
+        private TextView dayWeatherTv;
 
         public WeatherViewHolder(@NonNull View itemView) {
             super(itemView);
 
             dataTv = itemView.findViewById(R.id.data_weather_item_tv);
-            tempDayTv = itemView.findViewById(R.id.day_temp_weather_item_tv);
-            tempNightTv = itemView.findViewById(R.id.night_temp_weather_item_tv);
-            sostDayTv = itemView.findViewById(R.id.day_sost_weather_item_tv);
-            sostNightTv = itemView.findViewById(R.id.night_sost_weather_item_tv);
+            tempTv = itemView.findViewById(R.id.temp_weather_item_tv);
+            dayWeatherTv = itemView.findViewById(R.id.day_weather_item_tv);
 
             itemView.setOnClickListener(view -> {
                 DailyForecast dailyForecast = dailyList.get(getLayoutPosition());
@@ -88,21 +85,25 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.WeatherViewHol
 
         public void bind(DailyForecast dailyForecast){
             dataTv.setText(parseData(dailyForecast.getDate()));
-            tempDayTv.setText(dailyForecast.getTemperature().getMaximum().getValue() + " F");
-            sostDayTv.setText(dailyForecast.getDay().getIconPhrase());
-            tempNightTv.setText(dailyForecast.getTemperature().getMinimum().getValue() + " F");
-            sostNightTv.setText(dailyForecast.getNight().getIconPhrase());
+            tempTv.setText(convertTemperature(dailyForecast.getTemperature().getMaximum().getValue()) + " C/ "
+                    + convertTemperature(dailyForecast.getTemperature().getMinimum().getValue()) + " C");
+            dayWeatherTv.setText(dailyForecast.getDay().getIconPhrase());
         }
 
         private String parseData(String oldData){
             String newData = "";
             try {
                 Date data = new SimpleDateFormat(dataTimeFormat).parse(oldData);
-                newData = new SimpleDateFormat("EEE.dd.MM").format(data);
+                newData = new SimpleDateFormat("EEE dd.MM").format(data);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
             return newData;
+        }
+
+        private int convertTemperature(String tempStr){
+            double temp = Double.parseDouble(tempStr);
+            return (int) ((temp - 32) / 1.8);
         }
     }
 }

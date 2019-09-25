@@ -10,7 +10,7 @@ public class Speed implements Serializable
 
     @SerializedName("Value")
     @Expose
-    private Double value;
+    private String value;
     @SerializedName("Unit")
     @Expose
     private String unit;
@@ -19,11 +19,11 @@ public class Speed implements Serializable
     private Integer unitType;
     private final static long serialVersionUID = -6852603568677911630L;
 
-    public Double getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(String value) {
         this.value = value;
     }
 

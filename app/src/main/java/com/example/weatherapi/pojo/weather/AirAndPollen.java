@@ -13,7 +13,7 @@ public class AirAndPollen implements Serializable
     private String name;
     @SerializedName("Value")
     @Expose
-    private Integer value;
+    private String value;
     @SerializedName("Category")
     @Expose
     private String category;
@@ -33,11 +33,11 @@ public class AirAndPollen implements Serializable
         this.name = name;
     }
 
-    public Integer getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(String value) {
         this.value = value;
     }
 

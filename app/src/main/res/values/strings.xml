@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">WeatherApi</string>
+    <string name="gusts_str">Порывы:</string>
+    <string name="wind_str">Ветер:</string>
+    <string name="hoarfrost_str">Изморозь:</string>
+    <string name="snow_str">Снег:</string>
+    <string name="rain_str">Дождь:</string>
+    <string name="precipitation_str">Осадки:</string>
+    <string name="thunderstorms_str">Грозы:</string>
+    <string name="uf_index_str">Макс. УФ-индекс:</string>
+    <string name="overcast_str">Облачно</string>
+    <string name="temp_value_str">12</string>
+    <string name="day_str">День</string>
+    <string name="night_str">Ночь</string>
+    <string name="data_value_str">03.04</string>
 </resources>

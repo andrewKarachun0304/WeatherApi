@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.weatherapi.R;
 import com.example.weatherapi.ViewAdapter;
@@ -19,6 +20,7 @@ import com.example.weatherapi.presenter.WeatherPresenter;
 
 public class WeatherActivity extends AppCompatActivity implements WeatherContactActivity {
 
+    private TextView regionTv;
     private RecyclerView recyclerView;
     private ViewAdapter adapter;
 
@@ -39,7 +41,10 @@ public class WeatherActivity extends AppCompatActivity implements WeatherContact
         initActivityCompat();
     }
 
-
+    public void initTextView(String region){
+        regionTv = findViewById(R.id.region_tv);
+        regionTv.setText(region);
+    }
 
     public void initActivityCompat(){
         if(ContextCompat.checkSelfPermission(this, PERMISSION_STRING)

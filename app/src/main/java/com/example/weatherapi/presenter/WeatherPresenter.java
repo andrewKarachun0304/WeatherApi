@@ -33,7 +33,10 @@ public class WeatherPresenter implements WeatherContactPresenter {
     public void getWeather(String q){
         Single<LocationCord> locationSingle = model.getCityKey(q);
                     locationSingle
-                            .flatMap(location -> Single.just(location.getKey()))
+                            .flatMap(location ->{
+                                view.initTextView(location.getLocalizedName() + ", " + location.getCountry().getLocalizedName());
+                                return Single.just(location.getKey());
+                            })
                             .flatMap((Function<String, Single<Weather>>) s -> model.getWeather(s))
                             .subscribe(weather -> view.initRecyclerView(weather));
     }
