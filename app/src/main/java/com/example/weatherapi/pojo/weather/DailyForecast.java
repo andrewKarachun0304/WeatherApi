@@ -2,6 +2,9 @@
 package com.example.weatherapi.pojo.weather;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -174,6 +177,17 @@ public class DailyForecast implements Serializable
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String convertData(){
+        String newData = "";
+        try {
+            Date data = new SimpleDateFormat("yyy-MM-dd'T'HH:mm:ssXXX").parse(date);
+            newData = new SimpleDateFormat("dd.MM EEEE").format(data);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return newData;
     }
 
 }

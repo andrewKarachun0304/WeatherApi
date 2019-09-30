@@ -43,4 +43,9 @@ public class Maximum implements Serializable
         this.unitType = unitType;
     }
 
+    public int convertValue(){
+        double temp = Double.parseDouble(value);
+        return (int) temp;
+    }
+
 }

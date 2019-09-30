@@ -14,8 +14,6 @@ public interface JSONPlaceHolderApi {
 
     @GET("forecasts/v1/daily/5day/{city_key}")
     Single<Weather> getWeatherWithApi(@Path("city_key") String cityKey, @Query("apikey") String apiKey, @Query("language") String language,
-                                      @Query("details") boolean details
-//            , @Query("metric") boolean metric
-            );
+                                      @Query("details") boolean details, @Query("metric") boolean metric);
 
 }

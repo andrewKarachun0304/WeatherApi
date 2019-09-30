@@ -13,4 +13,5 @@
     <string name="day_str">День</string>
     <string name="night_str">Ночь</string>
     <string name="data_value_str">03.04</string>
+    <string name="celsius">C</string>
 </resources>

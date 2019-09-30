@@ -2,7 +2,6 @@ package com.example.weatherapi.model;
 
 import android.content.Context;
 import android.location.Location;
-import android.view.ViewGroup;
 
 import com.example.weatherapi.NetworkService;
 import com.example.weatherapi.contact.WeatherContactModel;
@@ -45,7 +44,7 @@ public class WeatherModel implements WeatherContactModel {
     }
 
     public Single<Weather> getWeather(String cityKey){
-        return NetworkService.getInstance().getJsonApi().getWeatherWithApi(cityKey, API, LANGUAGE, true)
+        return NetworkService.getInstance().getJsonApi().getWeatherWithApi(cityKey, API, LANGUAGE, true, true)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

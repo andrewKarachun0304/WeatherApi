@@ -4,28 +4,26 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import com.example.weatherapi.R;
 import com.example.weatherapi.ViewAdapter;
 import com.example.weatherapi.contact.WeatherContactActivity;
+import com.example.weatherapi.databinding.ActivityWeatherBinding;
 import com.example.weatherapi.pojo.weather.Weather;
 import com.example.weatherapi.presenter.WeatherPresenter;
 
 public class WeatherActivity extends AppCompatActivity implements WeatherContactActivity {
 
-    private TextView regionTv;
-    private RecyclerView recyclerView;
+    private ActivityWeatherBinding binding;
     private ViewAdapter adapter;
 
     private WeatherPresenter presenter;
-    int i = 0;
 
     public static final String PERMISSION_STRING
             = android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -34,7 +32,8 @@ public class WeatherActivity extends AppCompatActivity implements WeatherContact
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_weather);
 
         presenter = new WeatherPresenter();
         presenter.setView(this);
@@ -42,8 +41,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherContact
     }
 
     public void initTextView(String region){
-        regionTv = findViewById(R.id.region_tv);
-        regionTv.setText(region);
+        binding.regionTv.setText(region);
     }
 
     public void initActivityCompat(){
@@ -72,8 +70,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherContact
     }
 
     public void initRecyclerView(Weather weather){
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         ViewAdapter.OnWeatherClickListener onWeatherClickListener =
                 daily -> {
@@ -83,7 +80,7 @@ public class WeatherActivity extends AppCompatActivity implements WeatherContact
                 };
 
         adapter = new ViewAdapter(onWeatherClickListener);
-        recyclerView.setAdapter(adapter);
+        binding.recyclerView.setAdapter(adapter);
         adapter.setItems(weather.getDailyForecasts());
     }
 }
