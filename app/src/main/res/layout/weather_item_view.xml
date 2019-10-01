@@ -27,29 +27,22 @@
 
                 <TextView
                     android:id="@+id/data_weather_item_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
+                    style="@style/InformTextView"
+                    android:hint="@string/data_value_str"
                     android:text="@{daily.convertData()}"/>
 
                 <TextView
                     android:id="@+id/day_weather_item_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/InformTextView"
                     android:text="@{daily.day.iconPhrase}"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="20dp"
-                    android:textColor="@android:color/black"/>
+                    android:hint="@string/overcast_str"/>
 
                 <TextView
                     android:id="@+id/temp_weather_item_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text='@{daily.temperature.maximum.convertValue() + "C/" + daily.temperature.minimum.convertValue() + "C"}'
-                    android:textSize="25sp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="20dp"
-                    android:textColor="@android:color/black"/>
+                    style="@style/InformTextView"
+                    android:text='@{daily.temperature.maximum.convertValue() + " C/" + daily.temperature.minimum.convertValue() + " C"}'
+                    android:hint="@string/temp_value_str"
+                    android:textSize="40sp" />
 
             </LinearLayout>
 
@@ -66,7 +59,6 @@
                     android:src="@drawable/wsymbol_0001_sunny" />
 
             </LinearLayout>
-
         </LinearLayout>
 
         <View

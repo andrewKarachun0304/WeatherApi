@@ -53,11 +53,8 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="@string/day_str"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/black"/>
+                        style="@style/InformTextView"/>
 
                     <ImageView
                         android:layout_width="80dp"
@@ -66,22 +63,16 @@
 
                     <TextView
                         android:id="@+id/day_temp_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        style="@style/InformTextView"
                         android:text="@{daily.temperature.maximum.convertValue() + @string/celsius}"
                         android:hint="@string/temp_value_str"
-                        android:textSize="50sp"
-                        android:textColor="@android:color/black"/>
+                        android:textSize="50sp"/>
 
                     <TextView
                         android:id="@+id/day_sost_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
+                        style="@style/InformTextView"
                         android:text="@{daily.day.iconPhrase}"
-                        android:hint="@string/overcast_str"
-                        android:layout_marginTop="20dp"/>
+                        android:hint="@string/overcast_str"/>
 
                 </LinearLayout>
 
@@ -95,11 +86,8 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/night_str"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/black"/>
+                        style="@style/InformTextView"
+                        android:text="@string/night_str"/>
 
                     <ImageView
                         android:layout_width="80dp"
@@ -108,21 +96,16 @@
 
                     <TextView
                         android:id="@+id/night_temp_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:hint="@string/temp_value_str"
                         android:text="@{daily.temperature.minimum.convertValue() + @string/celsius}"
                         android:textSize="50sp"
-                        android:textColor="@android:color/black"/>
+                        style="@style/InformTextView"/>
 
                     <TextView
                         android:id="@+id/night_sost_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
+                        style="@style/InformTextView"
                         android:hint="@string/overcast_str"
-                        android:text="@{daily.night.iconPhrase}"
-                        android:layout_marginTop="20dp"/>
+                        android:text="@{daily.night.iconPhrase}"/>
 
                 </LinearLayout>
 
@@ -147,75 +130,57 @@
 
                     <TextView
                         android:id="@+id/day_precipitation_percent_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/precipitation_str"
-                        android:text='@{@string/precipitation_str + " " + daily.day.precipitationProbability + " %"}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/precipitation_str + " " + daily.day.precipitationProbability + " %"}' />
 
                     <TextView
                         android:id="@+id/day_uf_index_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/uf_index_str"
-                        android:text='@{@string/uf_index_str + " " + daily.airAndPollen[5].value + " (" + daily.airAndPollen[5].category + ")"}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/uf_index_str + " " + daily.airAndPollen[5].value + " (" + daily.airAndPollen[5].category + ")"}' />
 
                     <TextView
                         android:id="@+id/day_thunderstorm_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/thunderstorms_str"
-                        android:text='@{@string/thunderstorms_str + " " + daily.day.thunderstormProbability + " %"}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/thunderstorms_str + " " + daily.day.thunderstormProbability + " %"}' />
 
                     <TextView
                         android:id="@+id/day_precipitation_value_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/precipitation_str"
-                        android:text='@{@string/precipitation_str + " " + daily.day.totalLiquid.value + " " + daily.day.totalLiquid.unit}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/precipitation_str + " " + daily.day.totalLiquid.value + " " + daily.day.totalLiquid.unit}' />
 
                     <TextView
                         android:id="@+id/day_rain_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/rain_str"
-                        android:text='@{@string/rain_str + " " + daily.day.rain.value + " " + daily.day.rain.unit}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/rain_str + " " + daily.day.rain.value + " " + daily.day.rain.unit}' />
 
                     <TextView
                         android:id="@+id/day_snow_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/snow_str"
-                        android:text='@{@string/snow_str + " " + daily.day.rain.value + " " + daily.day.rain.unit}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/snow_str + " " + daily.day.rain.value + " " + daily.day.rain.unit}' />
 
                     <TextView
                         android:id="@+id/day_hoarfrost_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/hoarfrost_str"
-                        android:text='@{@string/hoarfrost_str + " " + daily.day.ice.value + " " + daily.day.ice.unit}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/hoarfrost_str + " " + daily.day.ice.value + " " + daily.day.ice.unit}' />
 
                     <TextView
                         android:id="@+id/day_wind_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/wind_str"
-                        android:text='@{@string/wind_str + " " + daily.day.wind.speed.value + " " + daily.day.wind.speed.unit + " " + daily.day.wind.direction.localized}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/wind_str + " " + daily.day.wind.speed.value + " " + daily.day.wind.speed.unit + " " + daily.day.wind.direction.localized}' />
 
                     <TextView
                         android:id="@+id/day_gusts_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/gusts_str"
-                        android:text='@{@string/gusts_str + " " + daily.day.windGust.speed.value + " " + daily.day.windGust.speed.unit}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/gusts_str + " " + daily.day.windGust.speed.value + " " + daily.day.windGust.speed.unit}' />
 
                 </LinearLayout>
 
@@ -230,74 +195,58 @@
 
                     <TextView
                         android:id="@+id/night_precipitation_percent_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/precipitation_str"
-                        android:text='@{@string/precipitation_str + " " + daily.night.precipitationProbability + " %"}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/precipitation_str + " " + daily.night.precipitationProbability + " %"}' />
 
                     <TextView
                         android:id="@+id/night_thunderstorm_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/thunderstorms_str"
-                        android:text='@{@string/thunderstorms_str + " " + daily.night.thunderstormProbability + " %"}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/thunderstorms_str + " " + daily.night.thunderstormProbability + " %"}' />
 
                     <TextView
                         android:id="@+id/night_precipitation_value_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/precipitation_str"
-                        android:text='@{@string/precipitation_str + " " + daily.night.totalLiquid.value + " " + daily.night.totalLiquid.unit}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/precipitation_str + " " + daily.night.totalLiquid.value + " " + daily.night.totalLiquid.unit}' />
 
                     <TextView
                         android:id="@+id/night_rain_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/rain_str"
-                        android:text='@{@string/rain_str + " " + daily.night.rain.value + " " + daily.night.rain.unit}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/rain_str + " " + daily.night.rain.value + " " + daily.night.rain.unit}' />
 
                     <TextView
                         android:id="@+id/night_snow_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/snow_str"
-                        android:text='@{@string/snow_str + " " + daily.night.rain.value + " " + daily.night.rain.unit}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/snow_str + " " + daily.night.rain.value + " " + daily.night.rain.unit}' />
 
                     <TextView
                         android:id="@+id/night_hoarfrost_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/hoarfrost_str"
-                        android:text='@{@string/hoarfrost_str + " " + daily.night.ice.value + " " + daily.night.ice.unit}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/hoarfrost_str + " " + daily.night.ice.value + " " + daily.night.ice.unit}' />
 
                     <TextView
                         android:id="@+id/night_wind_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/wind_str"
-                        android:text='@{@string/wind_str + " " + daily.night.wind.speed.value + " " + daily.night.wind.speed.unit + " " + daily.night.wind.direction.localized}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/wind_str + " " + daily.night.wind.speed.value + " " + daily.night.wind.speed.unit + " " + daily.night.wind.direction.localized}' />
 
                     <TextView
                         android:id="@+id/night_gusts_full_weather_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/DetailedInformTextView"
                         android:hint="@string/gusts_str"
-                        android:text='@{@string/gusts_str + " " + daily.night.windGust.speed.value + " " + daily.night.windGust.speed.unit}'
-                        android:layout_marginBottom="3dp"/>
+                        android:text='@{@string/gusts_str + " " + daily.night.windGust.speed.value + " " + daily.night.windGust.speed.unit}'/>
 
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@android:color/white"
                 android:orientation="horizontal"
@@ -310,36 +259,27 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/InformTextView"
                         android:text="РАССВЕТ/ЗАКАТ"
                         android:textColor="@android:color/black"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/StandardTextView"
                         android:text="Рассвет:"
                         android:layout_marginTop="3dp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="07:00"
-                        android:textSize="20sp"
-                        android:textColor="@android:color/black"/>
+                        style="@style/TimeTextView"
+                        android:text="07:00"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/StandardTextView"
                         android:text="Закат:"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="3dp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="19:02"
-                        android:textSize="20sp"
-                        android:textColor="@android:color/black"/>
+                        style="@style/TimeTextView"
+                        android:text="19:02"/>
 
                 </LinearLayout>
 
@@ -355,19 +295,14 @@
                         android:src="@drawable/wsymbol_0001_sunny" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/StandardTextView"
                         android:text="Длительность:"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="12:02 hr"
-                        android:textSize="20sp"
-                        android:textColor="@android:color/black"/>
+                        style="@style/TimeTextView"
+                        android:text="12:02 hr"/>
 
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -8,4 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="DetailedInformTextView" parent="InformTextView">
+        <item name="android:layout_marginBottom">3dp</item>
+    </style>
+
+    <style name="TimeTextView" parent="InformTextView">
+        <item name="android:textSize">20sp</item>
+    </style>
+    
+    <style name="InformTextView" parent="StandardTextView">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="StandardTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>
