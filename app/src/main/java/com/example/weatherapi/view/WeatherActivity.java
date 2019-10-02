@@ -13,17 +13,20 @@ import android.os.Bundle;
 
 import com.example.weatherapi.R;
 import com.example.weatherapi.ViewAdapter;
+import com.example.weatherapi.dagger.component.DaggerWeatherComponent;
+import com.example.weatherapi.dagger.component.WeatherComponent;
 import com.example.weatherapi.contact.WeatherContactActivity;
+import com.example.weatherapi.contact.WeatherContactPresenter;
 import com.example.weatherapi.databinding.ActivityWeatherBinding;
 import com.example.weatherapi.pojo.weather.Weather;
-import com.example.weatherapi.presenter.WeatherPresenter;
 
 public class WeatherActivity extends AppCompatActivity implements WeatherContactActivity {
 
     private ActivityWeatherBinding binding;
     private ViewAdapter adapter;
 
-    private WeatherPresenter presenter;
+    private WeatherContactPresenter presenter;
+    private WeatherComponent component;
 
     public static final String PERMISSION_STRING
             = android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -35,8 +38,10 @@ public class WeatherActivity extends AppCompatActivity implements WeatherContact
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_weather);
 
-        presenter = new WeatherPresenter();
-        presenter.setView(this);
+        component = DaggerWeatherComponent.create();
+
+        presenter = component.getWeatherPresenter();
+        presenter.setView(this, component.getWeatherModel());
         initActivityCompat();
     }
 

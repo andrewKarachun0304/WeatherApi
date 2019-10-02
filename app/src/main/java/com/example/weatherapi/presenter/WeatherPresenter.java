@@ -2,6 +2,7 @@ package com.example.weatherapi.presenter;
 
 import android.location.Location;
 
+import com.example.weatherapi.contact.WeatherContactModel;
 import com.example.weatherapi.contact.WeatherContactPresenter;
 import com.example.weatherapi.model.WeatherModel;
 import com.example.weatherapi.pojo.location.LocationCord;
@@ -15,11 +16,11 @@ import io.reactivex.functions.Function;
 public class WeatherPresenter implements WeatherContactPresenter {
 
     private WeatherActivity view;
-    private WeatherModel model;
+    private WeatherContactModel model;
 
-    public void setView(WeatherActivity view) {
+    public void setView(WeatherActivity view, WeatherModel model) {
         this.view = view;
-        model = new WeatherModel();
+        this.model = model;
         model.setWeatherContext(view.getApplicationContext());
     }
 

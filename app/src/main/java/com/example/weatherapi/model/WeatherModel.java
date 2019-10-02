@@ -6,6 +6,10 @@ import android.location.Location;
 import com.example.weatherapi.NetworkService;
 import com.example.weatherapi.contact.WeatherContactModel;
 
+import com.example.weatherapi.dagger.component.DaggerRxLocationComponent;
+import com.example.weatherapi.dagger.component.RxLocationComponent;
+import com.example.weatherapi.dagger.module.ContextModule;
+import com.example.weatherapi.dagger.module.RxLocationModules;
 import com.example.weatherapi.pojo.location.LocationCord;
 import com.example.weatherapi.pojo.weather.Weather;
 import com.google.android.gms.location.LocationRequest;
@@ -28,7 +32,12 @@ public class WeatherModel implements WeatherContactModel {
     }
 
     public Observable<Location> location(){
-        RxLocation rxLocation = new RxLocation(weatherContext);
+        RxLocationComponent component = DaggerRxLocationComponent
+                .builder()
+                .contextModule(new ContextModule(weatherContext))
+                .build();
+
+        RxLocation rxLocation = component.getLocation();
 
         LocationRequest locationRequest = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
