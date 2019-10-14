@@ -2,6 +2,8 @@ package com.example.weatherapi.model;
 
 import android.content.Context;
 import android.location.Location;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import com.example.weatherapi.JSONPlaceHolderApi;
 import com.example.weatherapi.contact.WeatherContactModel;
@@ -39,6 +41,15 @@ public class WeatherModel implements WeatherContactModel {
 
     public void setWeatherContext(Context weatherContext) {
         this.weatherContext = weatherContext;
+    }
+
+    public boolean isOnline(){
+        ConnectivityManager cm =
+                (ConnectivityManager) weatherContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting())
+            return true;
+        return false;
     }
 
     public Observable<Location> location(){

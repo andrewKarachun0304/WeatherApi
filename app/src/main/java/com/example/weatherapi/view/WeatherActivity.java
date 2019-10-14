@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.example.weatherapi.R;
 import com.example.weatherapi.ViewAdapter;
@@ -21,6 +23,8 @@ import com.example.weatherapi.databinding.ActivityWeatherBinding;
 import com.example.weatherapi.pojo.weather.Weather;
 
 public class WeatherActivity extends AppCompatActivity implements WeatherContactActivity {
+
+
 
     private ActivityWeatherBinding binding;
     private ViewAdapter adapter;
@@ -42,7 +46,11 @@ public class WeatherActivity extends AppCompatActivity implements WeatherContact
 
         presenter = component.getWeatherPresenter();
         presenter.setView(this, component.getWeatherModel());
-        initActivityCompat();
+        presenter.connection();
+    }
+
+    public void notConnection(){
+        binding.regionTv.setText("Нет подключения к интернету!");
     }
 
     public void initTextView(String region){

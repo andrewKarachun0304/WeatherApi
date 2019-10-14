@@ -6,5 +6,7 @@ import com.example.weatherapi.view.WeatherActivity;
 public interface WeatherContactPresenter {
 
     void setView(WeatherActivity view, WeatherModel model);
+    void connection();
     void getLocation();
+    void getWeather(String q);
 }

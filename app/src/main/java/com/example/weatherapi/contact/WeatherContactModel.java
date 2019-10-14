@@ -11,6 +11,7 @@ import io.reactivex.Single;
 
 public interface WeatherContactModel {
     void setWeatherContext(Context weatherContext);
+    boolean isOnline();
     Observable<Location> location();
     Single<LocationCord> getCityKey(String q);
     Single<Weather> getWeather(String s);

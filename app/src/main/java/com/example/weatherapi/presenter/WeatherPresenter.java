@@ -25,6 +25,13 @@ public class WeatherPresenter implements WeatherContactPresenter {
         model.initRetrofit();
     }
 
+    public void connection(){
+        if (model.isOnline())
+            view.initActivityCompat();
+        else
+            view.notConnection();
+    }
+
     public void getLocation(){
         Observable<Location> locationObservable = model.location();
         locationObservable
