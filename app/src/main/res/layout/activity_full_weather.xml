@@ -57,16 +57,29 @@
                         style="@style/InformTextView"/>
 
                     <ImageView
+                        android:id="@+id/day_weather_iv"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/wsymbol_0024_thunderstorms"/>
+                        android:src="@drawable/iconfinder_weather_1_3"/>
 
-                    <TextView
-                        android:id="@+id/day_temp_full_weather_tv"
-                        style="@style/InformTextView"
-                        android:text="@{daily.temperature.maximum.convertValue() + @string/celsius}"
-                        android:hint="@string/temp_value_str"
-                        android:textSize="50sp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/day_temp_full_weather_tv"
+                            style="@style/InformTextView"
+                            android:text="@{String.valueOf(daily.temperature.maximum.convertValue())}"
+                            android:hint="@string/temp_value_str"
+                            android:textSize="50sp"/>
+
+                        <ImageView
+                            android:src="@drawable/temperature_celsius"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/day_sost_full_weather_tv"
@@ -90,16 +103,29 @@
                         android:text="@string/night_str"/>
 
                     <ImageView
+                        android:id="@+id/night_weather_iv"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/wsymbol_0021_cloudy_with_sleet"/>
+                        android:src="@drawable/iconfinder_weather_1_3"/>
 
-                    <TextView
-                        android:id="@+id/night_temp_full_weather_tv"
-                        android:hint="@string/temp_value_str"
-                        android:text="@{daily.temperature.minimum.convertValue() + @string/celsius}"
-                        android:textSize="50sp"
-                        style="@style/InformTextView"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/night_temp_full_weather_tv"
+                            android:hint="@string/temp_value_str"
+                            android:text="@{String.valueOf(daily.temperature.minimum.convertValue())}"
+                            android:textSize="50sp"
+                            style="@style/InformTextView"/>
+
+                        <ImageView
+                            android:src="@drawable/temperature_celsius"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/night_sost_full_weather_tv"
@@ -292,7 +318,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/wsymbol_0001_sunny" />
+                        android:src="@drawable/iconfinder_weather_1_3" />
 
                     <TextView
                         style="@style/StandardTextView"

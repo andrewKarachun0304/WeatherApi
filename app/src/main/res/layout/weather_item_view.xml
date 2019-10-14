@@ -37,12 +37,31 @@
                     android:text="@{daily.day.iconPhrase}"
                     android:hint="@string/overcast_str"/>
 
-                <TextView
-                    android:id="@+id/temp_weather_item_tv"
-                    style="@style/InformTextView"
-                    android:text='@{daily.temperature.maximum.convertValue() + " C/" + daily.temperature.minimum.convertValue() + " C"}'
-                    android:hint="@string/temp_value_str"
-                    android:textSize="40sp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/temp_max_weather_item_tv"
+                        style="@style/InformTextView"
+                        android:text='@{daily.temperature.maximum.convertValue() + "/"}'
+                        android:hint="@string/temp_value_str"
+                        android:textSize="40sp" />
+
+                    <TextView
+                        android:id="@+id/temp_min_weather_item_tv"
+                        style="@style/InformTextView"
+                        android:text='@{String.valueOf(daily.temperature.minimum.convertValue())}'
+                        android:hint="@string/temp_value_str"
+                        android:textSize="30sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/temperature_celsius"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -54,9 +73,9 @@
                 android:gravity="end">
 
                 <ImageView
+                    android:id="@+id/weatherIconImageView"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/wsymbol_0001_sunny" />
+                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
         </LinearLayout>

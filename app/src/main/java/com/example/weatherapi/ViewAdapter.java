@@ -45,6 +45,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.WeatherViewHol
     @Override
     public void onBindViewHolder(@NonNull WeatherViewHolder holder, int position) {
         DailyForecast dailyForecast = dailyList.get(position);
+        holder.icons(dailyForecast.getDay().getIcon());
         holder.binding.setDaily(dailyForecast);
     }
 
@@ -59,6 +60,11 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.WeatherViewHol
 
     public class WeatherViewHolder extends RecyclerView.ViewHolder {
         private WeatherItemViewBinding binding;
+        private DailyForecast daily;
+
+        public void setDaily(DailyForecast daily) {
+            this.daily = daily;
+        }
 
         public WeatherViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +74,57 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.WeatherViewHol
                 DailyForecast dailyForecast = dailyList.get(getLayoutPosition());
                 listener.onWeatherClick(dailyForecast);
             });
+        }
+
+        private void icons(int number){
+            if(number >= 1 && number <= 3)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_1_3);
+            else if(number >= 4 && number <= 6)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_4_6);
+            else if(number >= 7 && number <= 11)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_7_11);
+            else if(number ==12)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_4_6);
+            else if(number == 13 || number == 14)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_13_14);
+            else if(number == 15)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_15);
+            else if(number == 16 || number == 17)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_16_17);
+            else if(number == 18)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_18);
+            else if(number == 19)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_19);
+            else if(number == 20 || number == 21)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_20_21);
+            else if(number == 22)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_22);
+            else if(number == 23)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_23);
+            else if(number == 24 || number == 25)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_24_25);
+            else if(number == 26)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_26);
+            else if(number == 29)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_29);
+            else if(number == 30)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_30);
+            else if(number == 31)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_31);
+            else if(number == 32)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_32);
+            else if(number >= 33 && number <= 35)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_33_35);
+            else if(number >= 36 && number <= 38)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_36_38);
+            else if(number == 39 || number == 40)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_39_40);
+            else if(number == 41 || number == 42)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_39_40);
+            else if(number == 43)
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_43);
+            else
+                binding.weatherIconImageView.setImageResource(R.drawable.iconfinder_weather_44);
         }
     }
 }

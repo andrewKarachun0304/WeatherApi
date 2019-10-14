@@ -21,14 +21,16 @@ public class NetworkService {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        OkHttpClient.Builder client = new OkHttpClient.Builder()
-                .addInterceptor(interceptor);
+        OkHttpClient client = new OkHttpClient()
+                .newBuilder()
+                .addInterceptor(interceptor)
+                .build();
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(client.build())
+                .client(client)
                 .build();
     }
 

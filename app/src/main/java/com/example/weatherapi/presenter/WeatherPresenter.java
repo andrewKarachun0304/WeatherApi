@@ -22,6 +22,7 @@ public class WeatherPresenter implements WeatherContactPresenter {
         this.view = view;
         this.model = model;
         model.setWeatherContext(view.getApplicationContext());
+        model.initRetrofit();
     }
 
     public void getLocation(){
